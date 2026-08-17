@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+"""Module that returns the list of schools having a specific topic."""
+
+
+def schools_by_topic(mongo_collection, topic):
+    """Return the list of schools having a specific topic.
+
+    Args:
+        mongo_collection: A pymongo collection object.
+        topic (str): The topic searched.
+
+    Returns:
+        A list of the documents whose topics contain the given topic.
+    """
+    return list(mongo_collection.find({"topics": topic}))
