@@ -25,6 +25,15 @@ npm run full-test         # lint + test
 | File | Description |
 |---|---|
 | 0-constants.js | `const` and `let` instead of `var` |
+| 1-block-scoped.js | Block scoping so the conditional doesn't overwrite outer variables |
+| 2-arrow.js | Arrow function syntax and lexical `this` |
+| 3-default-parameter.js | Default parameter values |
+| 4-rest-parameter.js | Rest parameter syntax |
+| 5-spread-operator.js | Spread syntax on arrays and strings |
+| 6-string-interpolation.js | Template literals instead of string concatenation |
+| 7-getBudgetObject.js | Object property value shorthand |
+| 8-getBudgetCurrentYear.js | Computed property names |
+| 9-getFullBudget.js | ES6 method properties in an object literal |
 
 ## Files
 
