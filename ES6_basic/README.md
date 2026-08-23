@@ -34,6 +34,8 @@ npm run full-test         # lint + test
 | 7-getBudgetObject.js | Object property value shorthand |
 | 8-getBudgetCurrentYear.js | Computed property names |
 | 9-getFullBudget.js | ES6 method properties in an object literal |
+| 10-loops.js | `for...of` instead of `for...in` |
+| 11-createEmployeesObject.js | Build an object keyed by department name |
 
 ## Files
 
