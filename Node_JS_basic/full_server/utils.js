@@ -24,5 +24,3 @@ export default function readDatabase(path) {
     });
   });
 }
-
-export { readDatabase };

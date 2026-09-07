@@ -1,6 +1,6 @@
 import readDatabase from '../utils';
 
-const databasePath = process.argv[2];
+const databasePath = process.argv.find((arg) => arg.endsWith('.csv')) || 'database.csv';
 
 export default class StudentsController {
   static getAllStudents(request, response) {
