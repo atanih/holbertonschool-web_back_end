@@ -1,10 +1,27 @@
 import readDatabase from '../utils';
 
-const databasePath = process.argv.find((arg) => arg.endsWith('.csv')) || 'database.csv';
+function resolveDatabasePath() {
+  const args = process.argv.slice(2);
+  let skipNext = false;
+
+  for (let i = 0; i < args.length; i += 1) {
+    const arg = args[i];
+
+    if (skipNext) {
+      skipNext = false;
+    } else if (arg.startsWith('-')) {
+      skipNext = true;
+    } else if (!arg.endsWith('.test.js') && !arg.includes('mocha')) {
+      return arg;
+    }
+  }
+
+  return 'database.csv';
+}
 
 export default class StudentsController {
   static getAllStudents(request, response) {
-    readDatabase(databasePath)
+    readDatabase(resolveDatabasePath())
       .then((fields) => {
         const lines = ['This is the list of our students'];
         const sorted = Object.keys(fields)
@@ -30,7 +47,7 @@ export default class StudentsController {
       return;
     }
 
-    readDatabase(databasePath)
+    readDatabase(resolveDatabasePath())
       .then((fields) => {
         const list = fields[major] || [];
         response.status(200).send(`List: ${list.join(', ')}`);
